@@ -1,0 +1,237 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Document Library Client Design System
+   Creme + Mint Green theme with soft, minimal, slightly futuristic feel
+   All colors in HSL format
+*/
+
+@layer base {
+  :root {
+    /* Warm Creme Base */
+    --background: 36 33% 97%;
+    --foreground: 220 20% 14%;
+
+    /* Card surfaces - slightly warmer white */
+    --card: 40 33% 99%;
+    --card-foreground: 220 20% 14%;
+
+    /* Popover */
+    --popover: 40 33% 99%;
+    --popover-foreground: 220 20% 14%;
+
+    /* Primary - Soft Mint Green */
+    --primary: 158 53% 62%;
+    --primary-foreground: 220 20% 14%;
+
+    /* Secondary - Muted warm gray */
+    --secondary: 36 20% 94%;
+    --secondary-foreground: 220 15% 30%;
+
+    /* Muted elements */
+    --muted: 36 15% 92%;
+    --muted-foreground: 220 10% 50%;
+
+    /* Accent - Lighter mint */
+    --accent: 158 45% 90%;
+    --accent-foreground: 158 60% 35%;
+
+    /* Destructive - Soft coral red */
+    --destructive: 0 65% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders and inputs */
+    --border: 36 20% 88%;
+    --input: 36 20% 88%;
+    --ring: 158 53% 62%;
+
+    --radius: 0.75rem;
+
+    /* Custom semantic tokens */
+    --success: 158 53% 50%;
+    --success-foreground: 0 0% 100%;
+    --warning: 40 90% 55%;
+    --warning-foreground: 40 90% 20%;
+    --error: 0 65% 60%;
+    --error-foreground: 0 0% 100%;
+
+    /* Chat bubbles */
+    --chat-user: 158 45% 88%;
+    --chat-user-foreground: 220 20% 14%;
+    --chat-assistant: 36 25% 96%;
+    --chat-assistant-foreground: 220 20% 14%;
+
+    /* App bar */
+    --app-bar: 36 33% 99%;
+    --app-bar-border: 36 20% 90%;
+
+    /* Status indicators */
+    --status-connected: 158 53% 50%;
+    --status-idle: 36 15% 75%;
+    --status-error: 0 65% 60%;
+
+    /* Sidebar tokens (for compatibility) */
+    --sidebar-background: 36 33% 97%;
+    --sidebar-foreground: 220 20% 14%;
+    --sidebar-primary: 158 53% 62%;
+    --sidebar-primary-foreground: 220 20% 14%;
+    --sidebar-accent: 158 45% 90%;
+    --sidebar-accent-foreground: 158 60% 35%;
+    --sidebar-border: 36 20% 88%;
+    --sidebar-ring: 158 53% 62%;
+  }
+
+  .dark {
+    /* Dark charcoal base */
+    --background: 220 15% 11%;
+    --foreground: 36 25% 92%;
+
+    /* Card surfaces - slightly lighter charcoal */
+    --card: 220 15% 14%;
+    --card-foreground: 36 25% 92%;
+
+    /* Popover */
+    --popover: 220 15% 14%;
+    --popover-foreground: 36 25% 92%;
+
+    /* Primary - Mint green stays vibrant */
+    --primary: 158 53% 55%;
+    --primary-foreground: 220 20% 10%;
+
+    /* Secondary */
+    --secondary: 220 12% 20%;
+    --secondary-foreground: 36 20% 85%;
+
+    /* Muted */
+    --muted: 220 12% 18%;
+    --muted-foreground: 220 10% 55%;
+
+    /* Accent */
+    --accent: 158 40% 20%;
+    --accent-foreground: 158 53% 70%;
+
+    /* Destructive */
+    --destructive: 0 55% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders and inputs */
+    --border: 220 12% 22%;
+    --input: 220 12% 22%;
+    --ring: 158 53% 55%;
+
+    /* Custom semantic tokens */
+    --success: 158 53% 55%;
+    --success-foreground: 220 20% 10%;
+    --warning: 40 80% 50%;
+    --warning-foreground: 40 90% 10%;
+    --error: 0 55% 50%;
+    --error-foreground: 0 0% 100%;
+
+    /* Chat bubbles */
+    --chat-user: 158 35% 22%;
+    --chat-user-foreground: 36 25% 92%;
+    --chat-assistant: 220 12% 18%;
+    --chat-assistant-foreground: 36 25% 92%;
+
+    /* App bar */
+    --app-bar: 220 15% 13%;
+    --app-bar-border: 220 12% 20%;
+
+    /* Status indicators */
+    --status-connected: 158 53% 55%;
+    --status-idle: 220 10% 40%;
+    --status-error: 0 55% 50%;
+
+    /* Sidebar tokens */
+    --sidebar-background: 220 15% 11%;
+    --sidebar-foreground: 36 25% 92%;
+    --sidebar-primary: 158 53% 55%;
+    --sidebar-primary-foreground: 220 20% 10%;
+    --sidebar-accent: 158 40% 20%;
+    --sidebar-accent-foreground: 158 53% 70%;
+    --sidebar-border: 220 12% 22%;
+    --sidebar-ring: 158 53% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Smooth theme transitions */
+  html {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Custom scrollbar for the library feel */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted/50 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full;
+    transition: background-color 0.2s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+}
+
+@layer utilities {
+  /* Subtle hover transitions */
+  .hover-lift {
+    @apply transition-all duration-200 ease-out;
+  }
+  
+  .hover-lift:hover {
+    @apply -translate-y-0.5 shadow-md;
+  }
+
+  /* Glass effect for cards */
+  .glass {
+    @apply backdrop-blur-sm bg-card/90;
+  }
+
+  /* Status dot pulse animation */
+  @keyframes pulse-dot {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  .animate-pulse-dot {
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  /* Message fade in */
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.3s ease-out forwards;
+  }
+}
